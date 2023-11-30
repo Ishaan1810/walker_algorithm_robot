@@ -1,14 +1,5 @@
 # walker_algorithm_robot
 
-
-## Dependencies
-
-- rclcpp
-- sensor_msgs
-- geometry_msgs
-- OS: Ubuntu Linux 22.04
-- ROS Version: ROS2 Humble Hawksbill
-
 ### Building the ROS package
 ```bash
 # Source to ros humble
@@ -28,19 +19,6 @@ colcon build --packages-select turtlebot3_walker_ros2
 ```
 
 
-
-## Run Instructions
-
-After the successful build, to run open a new terminal,
-
-```sh
-cd ~/ros2_ws
-```
-
-```sh
-. install/setup.bash
-```
-
 ### Using the launch file
 
 **Run below commands to check the functionality of the Rosbag while the turtlebot is running**
@@ -53,10 +31,13 @@ ros2 launch walker_algorithm_robot custom_launch.py bag_record:=True
 
 ```
   
-## Cppcheck and Cpplint
+### CppCheck & CppLint
+```bash
+# Use the below command for cpp check by moving to directory beginner_tutorials
+cppcheck --enable=all --std=c++17 --suppress=missingIncludeSystem $( find . -name *.cpp | grep -vE -e "^(./build/|./install/|./log/)" ) --check-config  &> results/cppcheck.txt
 
-To run the Cpplint and the cppcheck command and save the results in the results directory,
+# Use the below command for cpp lint by moving to directory beginner_tutorials 
+cpplint  --filter=-build/c++11,+build/c++17,-build/namespaces,-build/include_order $( find . -name *.cpp | grep -vE -e "^(./build/|./install/|./log/)" ) &> results/cpplint.txt 
 
-```sh
-sh cppcheck_cpplint.sh
+## The results of both are present in results folder inside results directory
 ```
