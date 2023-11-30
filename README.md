@@ -28,7 +28,7 @@ cd ~/ros2_ws/src/walker_algorithm_robot/results/bag_recording
 ros2 launch walker_algorithm_robot custom_launch.py bag_record:=True
 
 # Press Ctrl+C after 15-20 seconds
-
+#I have created a directory called bag_recordings in results folder wherre the ros bag recordings will be stored
 ```
   
 ### CppCheck & CppLint
